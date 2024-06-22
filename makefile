@@ -10,8 +10,8 @@ get_texts:
 	wget https://www.gutenberg.org/cache/epub/32037/pg32037.txt
 	wget https://www.gutenberg.org/cache/epub/2148/pg2148.txt
 	wget https://www.gutenberg.org/cache/epub/2147/pg2147.txt
-	wget https://www.gutenberg.org/cache/epub/2149/pg2149.txt
-	wget https://www.gutenberg.org/cache/epub/2150/pg2150.txt
+	wget https://www.gutenberg.org/cache/epub/10031/pg10031.txt
+	wget https://www.gutenberg.org/cache/epub/14082/pg14082.txt
 
 raven_line_count:
 	cat pg17192.txt | wc -l
