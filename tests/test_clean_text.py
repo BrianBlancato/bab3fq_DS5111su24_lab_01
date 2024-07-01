@@ -24,8 +24,7 @@ def test_clean_text_raven(filename):
     "pg17192.txt",
     "pg932.txt",
     "pg1063.txt",
-    "pg10031.txt",
-    "pg14082.txt"
+    "pg10031.txt"
 ])
 
 def test_clean_text_english_files(filename):
@@ -68,7 +67,6 @@ def test_clean_text_french_raven(filename):
     "pg932.txt",
     "pg1063.txt",
     "pg10031.txt",
-    "pg14082.txt",
     "pg14082.txt"
 ])
 
