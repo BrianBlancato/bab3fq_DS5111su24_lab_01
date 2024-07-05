@@ -15,6 +15,7 @@ The reposirty contains the following main functions in tokenizer:
 Below is an example demonstraing how to use the functions:
 
 '''{python}
+
 from tokenizer import clean_text, tokenize, count_words
 
 text = "Hello world, the sky is blue, and the grass is green!"
