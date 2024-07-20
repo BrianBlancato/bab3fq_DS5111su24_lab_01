@@ -118,7 +118,7 @@ def test_clean_text_italian():
 def test_clean_text_fail():
     # Given a string and an incorrect expected result
     # When the text string is passed through clean_text
-    # # Then the test should fail because the result will not match the purposely incorrect expected result.
+    # Then the test should fail because the result will not match the purposely incorrect expected result.
     text = 'But the Raven, sitting lonely on the placid bust, spoke only That one word, as if his soul in that one word he did outpour.'
     expected_result = 'but the raven, sitting lonely on the placid bust, spoke only that one word, as if his soul in that one word he did outpour.'
     result = clean_text(text)
