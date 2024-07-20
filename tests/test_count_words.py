@@ -27,13 +27,9 @@ def test_count_words_raven(Raven):
         text = file.read()
     word_counts = count_words(text)
     total_words = sum(word_counts.values())
-    #raven_count = word_counts.get('raven', 0)
     bash_output = subprocess.check_output(f"cat {Raven} | wc -w", shell=True)
     bash_word_count = int(bash_output.strip())
-    bash_raven_count = subprocess.check_output(f"cat {Raven} | grep -o 'the' | wc -w", shell=True)
-    bash_raven_count = int(bash_raven_count.strip())
     assert total_words == bash_word_count, f"Word count mismatch for {Raven}: expected {bash_word_count}, got {total_words}"
-    #assert raven_count == bash_raven_count, f"Count mismatch for 'raven': expected {bash_raven_count}, got {raven_count}"
 
 
 # Test count_words on all English files

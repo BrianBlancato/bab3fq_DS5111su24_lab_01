@@ -1,0 +1,39 @@
+name: Python package
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      run_non_integration_tests:
+        description: 'Run non-integration tests'
+        required: true
+        default: 'true'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          make setup
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Get Texts
+        run: | 
+          make get_texts
+      - name: Run non-integration tests
+        if: ${{ github.event.inputs.run_non_integration_tests == 'true'}}
+        run: |
+          make test_non_integration
+      - name: Run only integration tests
+        run: |
+          make test_integration
