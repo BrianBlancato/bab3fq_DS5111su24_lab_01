@@ -53,7 +53,8 @@ def count_words(text):
     Takes a string and returns a dictionary with the words as keys and their counts as value.
     
     Args:
-        text: A string for whcih word frewquency is to be counted.
+        text: A string for which word frequency is to be counted.
+
     
     Returns:
         counts: A dictionary with words as keys and their frequency as values.
