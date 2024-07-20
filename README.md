@@ -35,3 +35,5 @@ word_count = count_words(cleaned_text)
 print(word_count)
 # Output: Count({'hello':1, 'world':1, 'the':2, 'sky':1, 'is':2, 'blue':1, 'and':1, 'grass':1, 'green':1})
 '''
+
+[![Python package](https://github.com/BrianBlancato/bab3fq_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg)](https://github.com/BrianBlancato/bab3fq_DS5111su24_lab_01/actions/workflows/validations.yml)
