@@ -30,6 +30,6 @@ total_lines:
 total_words:
 	wc -w *.txt
 
-env:
+setup:
 	python3 -m venv env; .env/bin/activate; pip install --upgrade pip; pip install -r requirements.txt
 
