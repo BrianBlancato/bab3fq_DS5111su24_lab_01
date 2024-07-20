@@ -1,6 +1,2 @@
 pytest
 pylint
-subprocess
-string
-os
-logging
