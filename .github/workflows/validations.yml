@@ -5,9 +5,14 @@ on:
   workflow_dispatch:
     inputs:
       run_non_integration_tests:
-        description: 'Run non-integration tests'
+        description: 'Run non-integration tests or integration tests'
         required: true
-        default: 'true'
+        default: 'non-integration'
+        type: choice
+        options:
+          - "non-integration"
+          - "integration"
+
 
 jobs:
   build:
@@ -31,9 +36,10 @@ jobs:
         run: | 
           make get_texts
       - name: Run non-integration tests
-        if: ${{ github.event.inputs.run_non_integration_tests == 'true'}}
+        if: ${{ github.event.inputs.run_non_integration_tests == 'non-integration'}}
         run: |
           make test_non_integration
       - name: Run only integration tests
+        if: ${{ github.event.inputs.run_non_integration_tests == 'integration'}}
         run: |
           make test_integration
