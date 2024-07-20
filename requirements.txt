@@ -1,6 +1,5 @@
 pytest
 pylint
-Counter
 subprocess
 string
 os
