@@ -3,6 +3,11 @@ name: Python package
 on:
   push:
   workflow_dispatch:
+    inputs:
+      run_non_integration_tests:
+        description: 'Run non-integration tests'
+        required: true
+        default: 'true'
 
 jobs:
   build:
