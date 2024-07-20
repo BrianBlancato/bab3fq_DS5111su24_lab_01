@@ -5,7 +5,6 @@ import subprocess
 from tokenizer import tokenize
 from tokenizer import clean_text
 import string
-import platform
 import os
 
 
