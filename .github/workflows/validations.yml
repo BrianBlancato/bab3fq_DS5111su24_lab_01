@@ -25,6 +25,9 @@ jobs:
       - name: Get Texts
         run: | 
           make get_texts
-      - name: Test with pytest
+      - name: Run non-integration tests
         run: |
-          pytest -vvx tests/ 
+          make test_non_integration
+      - name: Run only integration tests
+        run: |
+          make test_integration
