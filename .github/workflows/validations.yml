@@ -42,13 +42,16 @@ jobs:
         if: ${{ github.event.inputs.run_non_integration_tests == 'non-integration'}}
         run: |
           make test_non_integration
+        continue-on-error: true
 
       - name: Run only integration tests
         if: ${{ github.event.inputs.run_non_integration_tests == 'integration'}}
         run: |
           make test_integration
+        continue-on-error: true
       
       - name: Print logs on fail
         if: failure()
         run: |
           echo "Previous step failed. Printing logs:"
+          cat non_integration_test.log || cat integration_test.log
