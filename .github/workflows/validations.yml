@@ -46,7 +46,7 @@ jobs:
         continue-on-error: true
       
       - name: Print logs on fail
-        if: failure()
+        if: ${{ failure() }}
         run: |
           echo "Previous step failed. Printing logs:"
           cat non_integration_test.log || cat integration_test.log
