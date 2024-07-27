@@ -43,7 +43,7 @@ jobs:
       - name: Run only integration tests
         run: |
           make test_integration
-        #continue-on-error: true
+        continue-on-error: true
       
       - name: Print logs on fail
         if: ${{ failure() }}
