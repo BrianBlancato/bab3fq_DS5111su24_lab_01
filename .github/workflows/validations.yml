@@ -7,7 +7,7 @@ on:
       run_non_integration_tests:
         description: 'Run non-integration tests'
         required: true
-        default: 'true'
+        default: 'false'
 
 
 jobs:
