@@ -50,3 +50,7 @@ jobs:
         run: |
           echo "Previous step failed. Printing logs:"
           cat non_integration_test.log || cat integration_test.log
+      
+      - name: lint
+        run: |
+          make lint
