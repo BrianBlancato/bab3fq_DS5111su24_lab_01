@@ -31,7 +31,7 @@ total_words:
 	wc -w *.txt
 
 setup:
-	python3.10.12 -m venv env; .env/bin/activate; pip install --upgrade pip; pip install -r requirements.txt
+	python3.10 -m venv env; .env/bin/activate; pip install --upgrade pip; pip install -r requirements.txt
 
 .PHONY: test_non_integration
 # Job to run NON integration tests
