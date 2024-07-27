@@ -38,7 +38,7 @@ def clean_text(text):
 
 def tokenize(text):
     '''
-    Takes a string and reutrns a python list where each item is a word in the file.
+    Takes a string and returns a python list where each item is a word in the file.
     
     Args:
         text: An input string to be tokenized.
