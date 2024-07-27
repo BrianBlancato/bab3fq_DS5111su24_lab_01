@@ -33,11 +33,17 @@ total_words:
 setup:
 	python3.10.12 -m venv env; .env/bin/activate; pip install --upgrade pip; pip install -r requirements.txt
 
+.PHONY: test_non_integration
 # Job to run NON integration tests
-test_non_integration:
-	pytest -m "not integration" tests --vv --continue-on-collection-errors > non_integration_test.log 2>&1
+test_non_integration: lint
+	pytest -m "not integration" tests -vv --continue-on-collection-errors > non_integration_test.log 2>&1
 
+.PHONY: test_integration
 # Job to run only integration tests
-test_integration:
+test_integration: lint
 	pytest -m integration tests -vv --continue-on-collection-errors > integration_test.log 2>&1
+
+.PHONY: lint
+lint:
+	pylint src/bab3fq_package/tokenizer.py || true
 
