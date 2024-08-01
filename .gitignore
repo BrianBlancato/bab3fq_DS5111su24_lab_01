@@ -2,3 +2,5 @@
 !requirements.txt
 __pycache__/
 tests/__pycache__/
+env/
+*.log

@@ -1,3 +1,12 @@
+'''
+This module contains functions to clean, tokenize and count words in text.
+
+Functions:
+clean_test: Takes a string and returns all lowercase words without punctuation.
+tokenize: Takes a string and returns a python list where each item is a word in the file.
+count_words: Takes a string and returns a dictionary with the words as keys and
+'''
+
 import string
 import logging
 import os
@@ -29,9 +38,9 @@ def clean_text(text):
 
 def tokenize(text):
     '''
-    Takes a string and reutrns a python list where each item is a word in the file.
+    Takes a string and returns a python list where each item is a word in the file.
     
-    Args:
+    Args: 
         text: An input string to be tokenized.
     
     Returns:
@@ -43,7 +52,6 @@ def tokenize(text):
     tokens = text.split()
 
     assert isinstance(tokens, list), 'Tokens should be a list'
-    
     log.info('Text has been tokenized')
     return tokens
 
@@ -72,9 +80,8 @@ def count_words(text):
 
 if __name__ == '__main__':
 
-    file_name = os.path.splittext(os.path.basename(__file__))[0]
+    file_name = os.path.splitext(os.path.basename(__file__))[0]
     logging_file = f"{file_name}"
     logging.basicConfig(level=logging.INFO, filename=logging_file,
                         format='%(asctime)s %(name)s %(levelname)s: %(message)s')
-    
 log = logging.getLogger(__name__)

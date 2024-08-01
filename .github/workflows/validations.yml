@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.10.12"]
+        python-version: ["3.8.18", "3.10.14"]
 
     steps:
       - uses: actions/checkout@v4
@@ -35,7 +35,7 @@ jobs:
           make get_texts
 
       - name: Run non-integration tests
-        if: ${{ github.event.inputs.run_non_integration_tests == 'true'}}
+        if: ${{ github.event.inputs.run_non_integration_tests == 'true' || github.event.inputs.run_non_integration_tests == true}}
         run: |
           make test_non_integration
         continue-on-error: true
@@ -43,10 +43,14 @@ jobs:
       - name: Run only integration tests
         run: |
           make test_integration
-        continue-on-error: true
+        #continue-on-error: true
       
       - name: Print logs on fail
         if: failure()
         run: |
           echo "Previous step failed. Printing logs:"
           cat non_integration_test.log || cat integration_test.log
+      
+      - name: lint
+        run: |
+          make lint
