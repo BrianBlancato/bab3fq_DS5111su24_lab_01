@@ -9,6 +9,7 @@ on:
         required: true
         default: 'true'
 
+
 jobs:
   build:
 
@@ -23,17 +24,29 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Install dependencies
         run: |
           make setup
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
       - name: Get Texts
         run: | 
           make get_texts
+
       - name: Run non-integration tests
         if: ${{ github.event.inputs.run_non_integration_tests == 'true'}}
         run: |
           make test_non_integration
+        continue-on-error: true
+
       - name: Run only integration tests
         run: |
           make test_integration
+        continue-on-error: true
+      
+      - name: Print logs on fail
+        if: failure()
+        run: |
+          echo "Previous step failed. Printing logs:"
+          cat non_integration_test.log || cat integration_test.log

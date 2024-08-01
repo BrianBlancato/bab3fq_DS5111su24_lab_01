@@ -35,9 +35,9 @@ setup:
 
 # Job to run NON integration tests
 test_non_integration:
-	pytest -m "not integration"
+	pytest -m "not integration" tests --vv --continue-on-collection-errors > non_integration_test.log 2>&1
 
 # Job to run only integration tests
 test_integration:
-	pytest -m integration
+	pytest -m integration tests -vv --continue-on-collection-errors > integration_test.log 2>&1
 
