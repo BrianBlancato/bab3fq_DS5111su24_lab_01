@@ -1,3 +1,5 @@
+#% I didn't see any text in the PR descriptions... 
+
 # Text Processing
 
 [![Python package](https://github.com/BrianBlancato/bab3fq_DS5111su24_lab_01/actions/workflows/validations.yml/badge.svg)](https://github.com/BrianBlancato/bab3fq_DS5111su24_lab_01/actions/workflows/validations.yml)

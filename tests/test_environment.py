@@ -16,6 +16,6 @@ def test_python_version():
     # Given the expected python version
     # When the current python version is pulled
     # Then the current python version should be equal to the expected python version of 3.8.10 or 3.10.14
-    expected_versions = ["3.10.14", "3.8.10"]
+    expected_versions = ["3.10.14", '3.8.10']
     current_version = platform.python_version()
     assert current_version in expected_versions, f"Tests were not run on Python {expected_versions}. Current Python version: {current_version}"
