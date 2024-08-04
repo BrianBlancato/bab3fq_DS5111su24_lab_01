@@ -31,12 +31,16 @@ total_words:
 	wc -w *.txt
 
 setup:
-	python3.10 -m venv env; .env/bin/activate; pip install --upgrade pip; pip install -r requirements.txt
+	python3 -m venv env; .env/bin/activate; pip install --upgrade pip; pip install -r requirements.txt
 
 .PHONY: test_non_integration
 # Job to run NON integration tests
 test_non_integration: lint
 	pytest -m "not integration" tests -vv --continue-on-collection-errors > non_integration_test.log 2>&1
+#% your tests are passing, however, there is no output when running them. 
+# This is ok, just caught me off guard and had to look closer.  In some cases,
+# like running in the workflow you might want to enable some output, so the
+# logs remain to document that things ran as expected without doubt.
 
 .PHONY: test_integration
 # Job to run only integration tests
